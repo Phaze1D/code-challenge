@@ -1,0 +1,55 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended",
+      "tslint-react"
+  ],
+  "jsRules": {},
+  "rules": {
+      "quotemark": [true, "single", "jsx-single"],
+      "arrow-parens": [true, "ban-single-arg-parens"],
+      "member-access": false,
+      "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+      "no-consecutive-blank-lines": [true, 2],
+      "interface-over-type-literal": false,
+      "ordered-imports": false,
+      "object-literal-sort-keys": false,
+      "no-unused-variable": true,
+      "prefer-const": true,
+      "whitespace": [
+        true,
+        "check-branch",
+        "check-decl",
+        "check-operator",
+        "check-separator",
+        "check-type",
+        "check-typecast",
+        "check-module"
+      ],
+      "curly": false,
+      "no-empty": false,
+      "jsx-no-multiline-js": false,
+      "jsx-no-lambda": false,
+      "jsx-self-close": true,
+      "jsx-wrap-multiline": false,
+      "jsx-boolean-value": ["never"],
+      "jsx-space-before-trailing-slash": true,
+      "member-ordering": [
+        true,
+        {
+          "order": [
+            "public-static-field",
+            "public-instance-field",
+            "public-constructor",
+            "private-static-field",
+            "private-instance-field",
+            "private-constructor",
+            "private-instance-method",
+            "protected-instance-method",
+            "public-instance-method"
+          ]
+        }
+      ]
+  },
+  "rulesDirectory": []
+}
