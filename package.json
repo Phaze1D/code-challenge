@@ -6,7 +6,12 @@
   "author": "David Villarreal",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start:dev": "webpack-dev-server --hot --inline --config webpack/dev.config.js",
+    "build": "webpack --config webpack/production.config.js"
+  },
   "dependencies": {
+    "@loadable/component": "^5.12.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-media": "^1.10.0",
@@ -31,6 +36,7 @@
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
   }
 }
