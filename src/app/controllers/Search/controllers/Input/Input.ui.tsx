@@ -2,10 +2,10 @@ import * as React from 'react';
 import * as s from './Input.styles';
 
 const UI: React.FC<{
-  defaultValue?: string | string[]
+  query?: string | string[]
   onChange: (value) => any
 }> = ({
-  defaultValue,
+  query = '',
   onChange
 }) => {
 
@@ -20,7 +20,7 @@ const UI: React.FC<{
       <s.Input
         type='search'
         placeholder='Search'
-        defaultValue={defaultValue}
+        value={query}
         onChange={handleChange}
       />
     </s.Wrapper>

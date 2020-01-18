@@ -20,9 +20,9 @@ export type Repository = {
   description: string
   fork: boolean
   url: string
-  created_at: Date
-  updated_at: Date
-  pushed_at: Date
+  created_at: string
+  updated_at: string
+  pushed_at: string
   homepage: string
   size: number
   stargazers_count: number
