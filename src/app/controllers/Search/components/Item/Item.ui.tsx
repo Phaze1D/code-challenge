@@ -25,6 +25,7 @@ const Item: React.FC<{
       </s.Name>
 
       <s.Description>{repo.description}</s.Description>
+      <s.Date>Pushed At - {new Date(repo.pushed_at).toLocaleDateString()}</s.Date>
     </s.Card>
   );
 };
