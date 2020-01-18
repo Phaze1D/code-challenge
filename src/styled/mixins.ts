@@ -5,7 +5,7 @@ export const boxShadow = (
   inset = false
 ) => {
   return `
-    ${inset ? 'inset' : ''} ${size}px ${size}px ${size * 2}px #c4cad3,
-    ${inset ? 'inset' : ''} -${size}px -${size}px ${size * 2}px #ffffff;
+    ${inset ? 'inset' : ''} ${size}px ${size}px ${size * 2}px #373f52,
+    ${inset ? 'inset' : ''} -${size}px -${size}px ${size * 2}px #4b556e;
   `;
 };

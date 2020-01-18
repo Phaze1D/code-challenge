@@ -12,8 +12,8 @@ export type ThemeType = {
 export const theme: ThemeType = {
   colors: {
     primary: '#f9807d',
-    text: '#414a60',
-    background: '#e6eef8'
+    text: '#F6F5F7',
+    background: '#414A60'
   },
   breakpoints: {
     mobile: '768px'
