@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as s from './App.styles';
 import Media from 'react-media';
-import Repo from 'app/pages/Repo';
+import Detail from 'app/pages/Detail';
 import Search from 'app/pages/Search';
 import { theme } from 'styled';
 import { Switch, Route } from 'react-router-dom';
@@ -19,7 +19,7 @@ const App: React.FC<{
         {matches => matches ?
           (
             <Switch>
-              <Route path='/repo/:id' component={Repo} />
+              <Route path='/repo/:id' component={Detail} />
               <Route path='/' component={Search} />
             </Switch>
           )
@@ -27,7 +27,7 @@ const App: React.FC<{
           (
             <>
               <Route path='/' component={Search} />
-              <Route path='/repo/:id' component={Repo} />
+              <Route path='/repo/:id' component={Detail} />
             </>
           )
         }

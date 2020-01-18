@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as s from './Repo.styles';
+import * as s from './Detail.styles';
 
 const UI: React.FC<{
 
@@ -9,7 +9,7 @@ const UI: React.FC<{
 
   return (
     <s.Container>
-      Repo
+      Detail
     </s.Container>
   );
 };
