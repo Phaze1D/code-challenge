@@ -6,7 +6,7 @@ export const Container = styled.div`
   max-width: 380px;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: ${boxShadow(4, true)};
+  box-shadow: ${boxShadow(3, true)};
 
 
   @media (max-width: ${({theme}) => theme.breakpoints.mobile}) {

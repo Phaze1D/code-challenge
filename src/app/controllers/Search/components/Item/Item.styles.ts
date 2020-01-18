@@ -10,7 +10,7 @@ export const Card = styled(NavLink)`
   color: ${({theme}) => theme.colors.text};
 
   &.active {
-    box-shadow: ${boxShadow(1.5, true)};
+    box-shadow: ${boxShadow(1.5)};
   }
 `;
 
