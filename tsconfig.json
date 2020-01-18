@@ -2,15 +2,13 @@
   "compilerOptions": {
     "outDir": "lib",
     "target": "es6",
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
     "noUnusedLocals": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es5", "es2015", "es2016", "dom", "es2015.promise"],
     "declaration": false,
     "noImplicitAny": false,
-    "removeComments": true,
+    "removeComments": false,
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
