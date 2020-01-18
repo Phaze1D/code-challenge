@@ -3,6 +3,7 @@ import * as s from './App.styles';
 import Media from 'react-media';
 import Detail from 'app/pages/Detail';
 import Search from 'app/pages/Search';
+import Intro from 'app/pages/Intro';
 import { theme } from 'styled';
 import { Switch, Route } from 'react-router-dom';
 
@@ -27,7 +28,10 @@ const App: React.FC<{
           (
             <>
               <Route path='/' component={Search} />
-              <Route path='/repo/:id' component={Detail} />
+              <Switch>
+                <Route path='/repo/:id' component={Detail} />
+                <Route path='/' component={Intro} />
+              </Switch>
             </>
           )
         }
