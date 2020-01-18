@@ -10,7 +10,7 @@ const UI: React.FC<{
 }) => {
 
   const map = React.useCallback((repo: Repository) => (
-    <Item key={repo.id} result={repo} />
+    <Item key={repo.id} repo={repo} />
   ), []);
 
   return (
