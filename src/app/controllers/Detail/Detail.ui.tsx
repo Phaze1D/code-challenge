@@ -3,6 +3,7 @@ import * as s from './Detail.styles';
 import { Repository } from 'types';
 import { Header, InfoSection } from './components';
 import { Preview } from './controllers';
+import { PreviewErrorBoundary } from './catchers';
 
 const UI: React.FC<{
   repo: Repository
@@ -26,7 +27,9 @@ const UI: React.FC<{
 
       <InfoSection repo={repo} />
 
-      <Preview />
+      <PreviewErrorBoundary>
+        <Preview />
+      </PreviewErrorBoundary>
     </s.Container>
   );
 };

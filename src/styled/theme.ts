@@ -3,6 +3,7 @@ export type ThemeType = {
     primary: string
     text: string
     background: string
+    error: string
   }
   breakpoints: {
     mobile: string
@@ -11,9 +12,10 @@ export type ThemeType = {
 
 export const theme: ThemeType = {
   colors: {
-    primary: '#f9807d',
+    primary: '#26a69a',
     text: '#F6F5F7',
-    background: '#414A60'
+    background: '#414A60',
+    error: '#ef5350'
   },
   breakpoints: {
     mobile: '768px'
