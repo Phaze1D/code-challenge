@@ -2,8 +2,10 @@ import * as React from 'react';
 import * as s from './Input.styles';
 
 const UI: React.FC<{
+  defaultValue?: string | string[]
   onChange: (value) => any
 }> = ({
+  defaultValue,
   onChange
 }) => {
 
@@ -16,6 +18,7 @@ const UI: React.FC<{
     <s.Input
       type='search'
       placeholder='Search'
+      defaultValue={defaultValue}
       onChange={handleChange}
     />
   );

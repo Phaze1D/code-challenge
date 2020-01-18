@@ -1,7 +1,7 @@
 import * as React from 'react';
 import UI from './Search.ui';
 
-const Detail: React.FC<{
+const Search: React.FC<{
 
 }> = ({
 
@@ -13,4 +13,4 @@ const Detail: React.FC<{
     />
   );
 };
-export default React.memo(Detail);
+export default React.memo(Search);
