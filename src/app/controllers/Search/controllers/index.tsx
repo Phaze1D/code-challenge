@@ -1,9 +1,6 @@
 import * as React from 'react';
 import loadable from '@loadable/component';
-
-const Input = loadable(() => import(/* webpackPreload: true */ './Input/Input'), {
-  fallback: <div>Loading...</div>
-});
+import Input from './Input/Input';
 
 const List = loadable(() => import(/* webpackPreload: true */ './List/List'), {
   fallback: <div>Loading...</div>

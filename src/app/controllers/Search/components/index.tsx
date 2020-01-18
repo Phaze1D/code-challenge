@@ -1,9 +1,4 @@
-import * as React from 'react';
-import loadable from '@loadable/component';
-
-const Item = loadable(() => import('./Item/Item.ui'), {
-  fallback: <div>Loading...</div>
-});
+import Item from './Item/Item.ui';
 
 export {
   Item
