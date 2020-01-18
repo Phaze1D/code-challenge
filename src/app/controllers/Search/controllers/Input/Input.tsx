@@ -13,9 +13,9 @@ const Input: React.FC<{
   const query = qs.parse(location.search).q;
 
   const handleChange = React.useCallback(q => {
-    const path = `${location.pathname}?${qs.stringify({q})}`;
+    const path = `/?${qs.stringify({q})}`;
     history.push(path);
-  }, [location, history]);
+  }, [history]);
 
   return (
     <UI
