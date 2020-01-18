@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as s from './Search.styles';
 import { Item } from './components';
+import { Input } from './controller';
 import { SearchResult } from 'types';
 
 const UI: React.FC<{
@@ -15,9 +16,7 @@ const UI: React.FC<{
 
   return (
     <s.Container>
-      <s.SearchInput
-        placeholder='Search'
-      />
+      <Input />
 
       {results.map(map)}
     </s.Container>
