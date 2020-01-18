@@ -1,3 +1,4 @@
+import * as Color from 'color';
 import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 
@@ -55,10 +56,15 @@ export const Resets = createGlobalStyle`
     }
   }
   body, input, textarea, button {
-    font-family: Nunito;
+    font-family: Ubuntu;
     font-size: 8px;
     line-height: 1.5;
+    border: none;
     color: ${theme.colors.text};
+
+    &::placeholder {
+      color: ${Color(theme.colors.text).alpha(0.45).string()};
+    }
   }
   pre {
     white-space: pre-wrap;

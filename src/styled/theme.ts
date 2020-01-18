@@ -16,6 +16,6 @@ export const theme: ThemeType = {
     background: '#e6eef8'
   },
   breakpoints: {
-    mobile: '800px'
+    mobile: '768px'
   }
 };

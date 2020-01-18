@@ -13,5 +13,6 @@ const {
 
 export * from './theme';
 export * from './reset';
+export * from './mixins';
 export { css, keyframes, ThemeProvider, createGlobalStyle };
 export default styled;
