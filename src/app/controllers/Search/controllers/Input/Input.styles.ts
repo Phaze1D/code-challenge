@@ -20,6 +20,7 @@ export const Input = styled.input`
   margin-left: 1.5rem;
 `;
 
+
 export const Icon = styled.i`
 
 `;

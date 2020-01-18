@@ -1,6 +1,6 @@
 
 
-export type SearchResult = {
+export type Repository = {
   id: number
   node_id: string
   name: string

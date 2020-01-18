@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as s from './Item.styles';
-import { SearchResult } from 'types';
+import { Repository } from 'types';
 
 const UI: React.FC<{
-  result: SearchResult
+  result: Repository
 }> = ({
   result
 }) => {

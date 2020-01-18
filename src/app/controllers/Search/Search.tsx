@@ -8,9 +8,7 @@ const Search: React.FC<{
 }) => {
 
   return (
-    <UI
-      results={[]}
-    />
+    <UI />
   );
 };
 export default React.memo(Search);
