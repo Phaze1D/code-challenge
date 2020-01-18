@@ -15,12 +15,15 @@ const UI: React.FC<{
   }, [onChange]);
 
   return (
-    <s.Input
-      type='search'
-      placeholder='Search'
-      defaultValue={defaultValue}
-      onChange={handleChange}
-    />
+    <s.Wrapper>
+      <s.Icon className='material-icons-round'>search</s.Icon>
+      <s.Input
+        type='search'
+        placeholder='Search'
+        defaultValue={defaultValue}
+        onChange={handleChange}
+      />
+    </s.Wrapper>
   );
 };
 export default UI;
