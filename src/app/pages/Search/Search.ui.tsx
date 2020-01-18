@@ -1,16 +1,25 @@
 import * as React from 'react';
 import * as s from './Search.styles';
-import { Link } from 'react-router-dom';
+import { Item } from './components';
+import { SearchResult } from 'types';
 
 const UI: React.FC<{
-
+  results: SearchResult[]
 }> = ({
-
+  results
 }) => {
+
+  const map = React.useCallback((result: SearchResult) => (
+    <Item key={result.id} result={result} />
+  ), []);
 
   return (
     <s.Container>
-      <Link to='repo/id'>Go to Repo</Link>
+      <s.SearchInput
+        placeholder='Search'
+      />
+
+      {results.map(map)}
     </s.Container>
   );
 };

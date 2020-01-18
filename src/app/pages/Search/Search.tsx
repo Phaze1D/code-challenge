@@ -1,14 +1,16 @@
 import * as React from 'react';
 import UI from './Search.ui';
 
-const Repo: React.FC<{
+const Detail: React.FC<{
 
 }> = ({
 
 }) => {
 
   return (
-    <UI />
+    <UI
+      results={[]}
+    />
   );
 };
-export default React.memo(Repo);
+export default React.memo(Detail);
