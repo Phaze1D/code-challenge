@@ -7,9 +7,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start:dev": "webpack-dev-server --config webpack/dev.config.js",
+    "start:dev": "NODE_ENV=development webpack-dev-server --config webpack/dev.config.js",
     "build": "rm -rf ./dist && webpack --config webpack/production.config.js",
-    "test": "jest --watch"
+    "test": "NODE_ENV=development jest --watch"
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
