@@ -12,5 +12,6 @@ export const Container = styled.div`
   @media (max-width: ${({theme}) => theme.breakpoints.mobile}) {
     margin: 0 auto;
     border-radius: 0px;
+    box-shadow: none;
   }
 `;
