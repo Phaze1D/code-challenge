@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Actions - Search for Repos Should catch error and return Error model 1`] = `
+Object {
+  "payload": Object {
+    "model": Object {
+      "data": Object {
+        "alertMessage": "Something seems to have gone wrong",
+        "error": [Error: Request failed with status code 400],
+      },
+      "id": "234",
+      "type": "Error",
+    },
+  },
+  "type": "UPSERT",
+}
+`;
+
+exports[`Actions - Search for Repos Should return correctly transform data 1`] = `
+Object {
+  "payload": Object {
+    "models": Array [
+      Object {
+        "data": Object {
+          "full_name": "facebook/react",
+          "id": 10270250,
+          "name": "react",
+        },
+        "id": 10270250,
+        "type": "Repository",
+      },
+      Object {
+        "data": Object {
+          "full_name": "react-hack",
+          "id": 10270256,
+          "name": "react-hack",
+        },
+        "id": 10270256,
+        "type": "Repository",
+      },
+      Object {
+        "data": Object {
+          "incomplete_results": false,
+          "total_count": 1157653,
+        },
+        "id": "searchID",
+        "type": "Search",
+      },
+    ],
+  },
+  "type": "UPSERT_MANY",
+}
+`;
