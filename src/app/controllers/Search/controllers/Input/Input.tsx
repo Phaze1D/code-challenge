@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as qs from 'query-string';
 import UI from './Input.ui';
-import { debounce } from 'lodash';
-import { repository } from 'store/actions/models';
+import { debounce, isEmpty } from 'lodash';
+import { repository, clearAll as clearAllAction } from 'store/actions/models';
 import { connect } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -11,16 +11,20 @@ import { SearchReposParams } from 'types';
 
 const Input: React.FC<{
   search(param: SearchReposParams, replace?): any
+  clearAll(): any
 }> = ({
-  search
+  search,
+  clearAll
 }) => {
-  const debouceSearch = debounce(search, 250);
+  const debouceSearch = React.useRef(debounce(search, 250)).current;
   const history = useHistory();
   const location = useLocation();
   const query = qs.parse(location.search).q as string;
 
   React.useEffect(() => {
-    debouceSearch({q: query, per_page: 5, page: 1}, true);
+    isEmpty(query) ?
+      clearAll() :
+      debouceSearch({q: query, per_page: 5, page: 1}, true);
   }, [query]);
 
   const handleChange = React.useCallback(q => {
@@ -37,7 +41,8 @@ const Input: React.FC<{
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  search: repository.search
+  search: repository.search,
+  clearAll: clearAllAction
 }, dispatch);
 
 export default connect(
