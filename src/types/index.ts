@@ -47,3 +47,9 @@ export type GetRepoParams = {
   owner: string
   repo: string
 };
+
+export type PayloadModel = {
+  id: string
+  type: string
+  data: any
+};

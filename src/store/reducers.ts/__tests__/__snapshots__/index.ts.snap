@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing reducer Testing Multiple Models Should Add Multiple 1`] = `
+Object {
+  "models": Object {
+    "Dumb": Object {
+      "5": Object {
+        "name": "JarJar",
+      },
+    },
+    "Repo": Object {
+      "1": Object {
+        "name": "Hello There",
+      },
+      "5": Object {
+        "name": "General Kenobi",
+      },
+    },
+  },
+}
+`;
+
+exports[`Testing reducer Testing Multiple Models Should Remove Multiple 1`] = `
+Object {
+  "models": Object {
+    "Dumb": Object {
+      "5": Object {
+        "name": "JarJar",
+      },
+    },
+    "Repo": Object {},
+  },
+}
+`;
+
+exports[`Testing reducer Testing Multiple Models Should Replace Multiple 1`] = `
+Object {
+  "models": Object {
+    "Dumb": Object {
+      "5": Object {
+        "name": "JarJar",
+      },
+    },
+    "Repo": Object {
+      "1": Object {
+        "newData": "welcome",
+      },
+      "5": Object {
+        "newData": "welcome",
+      },
+    },
+  },
+}
+`;
+
+exports[`Testing reducer Testing Multiple Models Should Update Multiple 1`] = `
+Object {
+  "models": Object {
+    "Dumb": Object {
+      "5": Object {
+        "name": "JarJar",
+      },
+    },
+    "Repo": Object {
+      "1": Object {
+        "name": "Hello There",
+        "newData": "welcome",
+      },
+      "5": Object {
+        "name": "General Kenobi",
+        "newData": "welcome",
+      },
+    },
+  },
+}
+`;
+
+exports[`Testing reducer Testing Single Model Should add new model 1`] = `
+Object {
+  "models": Object {
+    "Repo": Object {
+      "repoid": Object {
+        "name": "Hello World",
+      },
+    },
+  },
+}
+`;
+
+exports[`Testing reducer Testing Single Model Should remove model 1`] = `
+Object {
+  "models": Object {
+    "Repo": Object {},
+  },
+}
+`;
+
+exports[`Testing reducer Testing Single Model Should replace model 1`] = `
+Object {
+  "models": Object {
+    "Repo": Object {
+      "repoid": Object {
+        "newData": "Hello New Data",
+      },
+    },
+  },
+}
+`;
+
+exports[`Testing reducer Testing Single Model Should update new model 1`] = `
+Object {
+  "models": Object {
+    "Repo": Object {
+      "repoid": Object {
+        "name": "Hello World",
+        "newData": "Hello New Data",
+      },
+    },
+  },
+}
+`;
