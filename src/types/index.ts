@@ -38,6 +38,8 @@ export type Repository = {
 
 export type SearchReposParams = {
   q: string
+  per_page?: number
+  page?: number
   sort?: string
   order?: 'asc' | 'desc'
 };
