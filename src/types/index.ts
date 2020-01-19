@@ -36,8 +36,14 @@ export type Repository = {
 };
 
 
-export type SearchParams = {
+export type SearchReposParams = {
   q: string
   sort?: string
   order?: 'asc' | 'desc'
+};
+
+
+export type GetRepoParams = {
+  owner: string
+  repo: string
 };

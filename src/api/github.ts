@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SearchParams } from 'types';
+import { SearchReposParams, GetRepoParams } from 'types';
 
 const githubAxios = axios.create({
   baseURL: 'https://api.github.com',
@@ -17,6 +17,11 @@ export const setToken = (token: string) => {
 };
 
 
-export const searchRepos = (params: SearchParams) => {
+export const searchRepos = (params: SearchReposParams) => {
   return githubAxios.get('/search/repositories', {params});
+};
+
+export const getRepo = (params: GetRepoParams) => {
+  const {owner, repo} = params;
+  return githubAxios.get(`/repos/${owner}/${repo}`);
 };

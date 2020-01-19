@@ -1,5 +1,5 @@
 import MockAdapter from 'axios-mock-adapter';
-import { searchRepos, __githubAxios, setToken } from '../github';
+import { searchRepos, __githubAxios, setToken, getRepo } from '../github';
 
 describe('Github API Config Test', () => {
   const mock = new MockAdapter(__githubAxios);
@@ -13,8 +13,8 @@ describe('Github API Config Test', () => {
 
   test('Should match correct config with auth', async () => {
     setToken('falsetoken923908-4325');
-    mock.onGet(/\S/).reply(200);
-    const res = await searchRepos({q: 'reacts'});
+    mock.onGet(/\S/).reply(200, {});
+    const res = await getRepo({owner: 'phaze1d', repo: 'some'});
     expect(res.config.headers).toMatchSnapshot();
     expect(res.config.baseURL).toMatchSnapshot();
   });
