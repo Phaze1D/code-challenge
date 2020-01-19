@@ -34,3 +34,10 @@ export type Repository = {
   default_branch: string
   score: number
 };
+
+
+export type SearchParams = {
+  q: string
+  sort?: string
+  order?: 'asc' | 'desc'
+};
