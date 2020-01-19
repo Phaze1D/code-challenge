@@ -17,7 +17,7 @@ const List: React.FC<{
 export default React.memo(List);
 
 
-const test: Repository = {
+export const test: Repository = {
   id: 3081286,
   node_id: 'MDEwOlJlcG9zaXRvcnkzMDgxMjg2',
   name: 'Tetris',

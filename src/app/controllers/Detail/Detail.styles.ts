@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 2rem 2rem 0;
+  padding: 2rem 0 0 2rem;
   @media (max-width: ${({theme}) => theme.breakpoints.mobile}) {
     padding: 1rem;
   }
