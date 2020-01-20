@@ -16,7 +16,7 @@ const Input: React.FC<{
   search,
   clearAll
 }) => {
-  const debouceSearch = React.useRef(debounce(search, 250)).current;
+  const debounceSearch = React.useRef(debounce(search, 350)).current;
   const history = useHistory();
   const location = useLocation();
   const query = qs.parse(location.search).q as string;
@@ -25,7 +25,9 @@ const Input: React.FC<{
     if (isEmpty(query)) {
       clearAll();
     } else {
-      debouceSearch({q: query, per_page: 10, page: 0}, true);
+      const replace = history.action === 'PUSH';
+      if (replace) clearAll();
+      debounceSearch({q: query, per_page: 20, page: 1}, replace);
     }
   }, [query]);
 
