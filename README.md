@@ -5,6 +5,19 @@ repositories.
 
 > This is all I could do with the time that I had. There is still a lot of improvements that could be done.
 
+### Running development env
+```
+npm install
+npm run start:dev
+```
+
+### Build production env
+```
+npm install
+npm build
+```
+> Should create a dist folder where you can use http-server to serve the index.html file
+
 ## Approach
 I approached this assignment as if it were a website that I had to build for a client. The mindset that I have when building any website/app is UX first. I do not consider myself a UX designer but throughout my career, I have come to realize that the most important aspect of an app is the UX, why? because if a user doesn't quickly understand how to use an app then that app is pretty much worthless. With that in mind the following codebase is based on flexible UX.
 
@@ -41,7 +54,17 @@ A controller consists of the 3 files mentioned above. A React Component is consi
 
 
 ### Components
-A component only consists of 2 files, the `[name].ui.tsx` and `[name].styles.ts`.
+A component only consists of 2 files, the **[name].ui.tsx** and **[name].styles.ts**.
 The only thing a component should do is receive and display data. Also, a component can also have ui logic, e.g Animations, small render conditions, user interactions.
 
 ### Folder Structure
+
+#### /app
+Where all react related code is placed.
+
+## Possible Improvements
+
+* A lot more testing needs to be done
+* Redux Action helper is way to over-engineered and needs refactoring
+* Better Error handling
+* Lazy load the redux store/actions.
