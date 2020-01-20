@@ -57,6 +57,7 @@ The only thing a component should do is receive and display data. Also, a compon
 
 #### App Folder
 Where all react related code is placed.
+
  * components
  * controllers
  * hooks
@@ -85,8 +86,10 @@ controllers
 
 #### Store Folder
 Where all redux relate logic goes.
+
 * actions
 * reducers
+
 The actions folder has helpers folder where shared logic can go, and the models folder where all model actions go.
 
 Example
