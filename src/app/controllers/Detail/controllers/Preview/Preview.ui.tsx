@@ -11,10 +11,12 @@ const UI: React.FC<{
 
   return (
     <s.Container>
-      <s.EmptyState>
-        {loading && 'Loading'}
-        {!content && !loading && `Looks like this repo doesn't have a Readme`}
-      </s.EmptyState>
+      {!content &&
+        <s.EmptyState>
+          {loading && 'Loading'}
+          {!loading && `Looks like this repo doesn't have a Readme`}
+        </s.EmptyState>
+      }
 
       {content && !loading && <div dangerouslySetInnerHTML={{__html: content}} />}
     </s.Container>
