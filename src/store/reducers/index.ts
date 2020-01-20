@@ -18,6 +18,7 @@ export const reducer: Reducer = (state = INITIAL_STATE, action) => {
     case TYPES.UPSERT_MANY: return upsertMany(state, payload);
     case TYPES.REMOVE: return remove(state, payload);
     case TYPES.REMOVE_MANY: return removeMany(state, payload);
+    case TYPES.CLEAR_MODEL: return clearModel(state, payload);
     case TYPES.CLEAR_ALL: return INITIAL_STATE;
     default: return state;
   }
@@ -137,5 +138,13 @@ const removeMany = (state, payload: {models: PayloadModel[]}) => {
       ...state.models,
       ...nModels
     }
+  };
+};
+
+
+const clearModel = (state, payload: {name: string}) => {
+  const {name} = payload;
+  return {
+    models: omit(state.models, name)
   };
 };

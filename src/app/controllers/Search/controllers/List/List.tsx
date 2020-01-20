@@ -16,12 +16,11 @@ const List: React.FC<{
   searchModel,
   search
 }) => {
-  const {loading, total_count} = searchModel;
+  const {loading, total_count, params} = searchModel;
 
   const handleLoadMore = React.useCallback(() => {
-    const {params} = searchModel;
     search({...params, page: get(params, 'page', 0) + 1});
-  }, [searchModel]);
+  }, [params]);
 
   return (
     <UI
