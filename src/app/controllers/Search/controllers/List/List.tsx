@@ -1,6 +1,6 @@
 import * as React from 'react';
 import UI from './List.ui';
-import { get, orderBy } from 'lodash';
+import { get, orderBy, isEmpty } from 'lodash';
 import { repository } from 'store/actions/models';
 import { createSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -16,7 +16,10 @@ const List: React.FC<{
   searchModel,
   search
 }) => {
-  const {loading, total_count, params} = searchModel;
+  const {loading, total_count, params, error} = searchModel;
+
+  const q = get(error, 'response.config.params.q', '');
+  if (error && !isEmpty(q)) throw error;
 
   const handleLoadMore = React.useCallback(() => {
     search({...params, page: get(params, 'page', 0) + 1});

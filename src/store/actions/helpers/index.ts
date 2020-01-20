@@ -72,6 +72,7 @@ const handleRequestFail = ({error, apiID, apiName}) => {
           type: apiName,
           id: apiID,
           data: {
+            error,
             loading: false
           }
         }

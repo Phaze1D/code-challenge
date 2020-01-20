@@ -12,8 +12,8 @@ const UI: React.FC<{
 
   return (
     <s.Container>
+      <Input />
       <SearchErrorBoundary>
-        <Input />
         <List />
       </SearchErrorBoundary>
     </s.Container>

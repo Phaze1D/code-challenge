@@ -11,20 +11,22 @@ I approached this assignment as if it were a website that I had to build for a c
 
 ## Architecture
 
-The main architecture of this app can be example with 3 simple files, and 2 simple folders.
+The main architecture of this app can be explained with 3 simple files, and 2 simple folders.
 
+> files
 ```
 [ComponentName].tsx
 [ComponentName].ui.tsx
 [ComponentName].styles.ts
 ```
-> files
 
+
+
+> folders
 ```
 controllers
 components
 ```
-> folders
 
 
 
@@ -42,4 +44,4 @@ A controller consists of the 3 files mentioned above. A React Component is consi
 A component only consists of 2 files, the `[name].ui.tsx` and `[name].styles.ts`.
 The only thing a component should do is receive and display data. Also, a component can also have ui logic, e.g Animations, small render conditions, user interactions.
 
-## Folder Structure
+### Folder Structure
