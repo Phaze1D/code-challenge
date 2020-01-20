@@ -15,7 +15,7 @@ const Item: React.FC<{
     <s.Card
       activeClassName='active'
       to={{
-        pathname: `/repo/${repo.id}`,
+        pathname: `/repo/${repo.id}/${get(repo, 'owner.login')}/${repo.name}`,
         search: location.search
       }}
     >

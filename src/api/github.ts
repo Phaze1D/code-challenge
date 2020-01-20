@@ -22,6 +22,6 @@ export const searchRepos = (params: SearchReposParams, cancelToken?) => {
 };
 
 export const getRepo = (params: GetRepoParams, cancelToken?) => {
-  const {owner, repo} = params;
-  return githubAxios.get(`/repos/${owner}/${repo}`, {cancelToken});
+  const {owner, name} = params;
+  return githubAxios.get(`/repos/${owner}/${name}`, {cancelToken});
 };

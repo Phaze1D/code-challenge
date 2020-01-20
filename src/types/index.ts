@@ -47,7 +47,7 @@ export type SearchReposParams = {
 
 export type GetRepoParams = {
   owner: string
-  repo: string
+  name: string
 };
 
 export type PayloadModel = {
