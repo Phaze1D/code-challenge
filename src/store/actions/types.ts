@@ -6,3 +6,4 @@ export const UPSERT_MANY = 'UPSERT_MANY';
 export const REMOVE = 'REMOVE';
 export const REMOVE_MANY = 'REMOVE_MANY';
 export const CLEAR_ALL = 'CLEAR_ALL';
+export const CLEAR_MODEL = 'CLEAR_MODEL';

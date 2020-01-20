@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { get } from 'lodash';
-import { UPSERT, REPLACE_MANY } from 'store/actions/types';
+import { REPLACE, REPLACE_MANY, UPSERT } from 'store/actions/types';
 
 
+// TODO: NEEDS TEST
 export const buildAction = ({
   params,
   apiMethod,
@@ -24,7 +25,7 @@ export const buildAction = ({
 
     if (!cancelSource) cancelSource = axios.CancelToken.source();
 
-    dispatch(handleRequestStart({params, apiID, apiName, cancelSource}));
+    dispatch(handleRequestStart({params, apiID, apiName, cancelSource, replace}));
 
     return apiMethod(params, cancelSource.token)
       .then(res => dispatch(transform(res, replace)))
@@ -32,6 +33,23 @@ export const buildAction = ({
         if (axios.isCancel(error)) return;
         return dispatch(handleRequestFail({error, apiID, apiName}));
       });
+  };
+};
+
+const handleRequestStart = ({params, apiID, apiName, cancelSource, replace}) => {
+  return {
+    type: replace ? REPLACE : UPSERT,
+    payload: {
+      model: {
+        type: apiName,
+        id: apiID,
+        data: {
+          params,
+          cancelSource,
+          loading: true
+        }
+      }
+    }
   };
 };
 
@@ -57,23 +75,6 @@ const handleRequestFail = ({error, apiID, apiName}) => {
           }
         }
       ]
-    }
-  };
-};
-
-const handleRequestStart = ({params, apiID, apiName, cancelSource}) => {
-  return {
-    type: UPSERT,
-    payload: {
-      model: {
-        type: apiName,
-        id: apiID,
-        data: {
-          params,
-          cancelSource,
-          loading: true
-        }
-      }
     }
   };
 };

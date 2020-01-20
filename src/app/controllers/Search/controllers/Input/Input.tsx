@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as qs from 'query-string';
 import UI from './Input.ui';
-import { debounce, isEmpty } from 'lodash';
-import { repository, clearAll as clearAllAction } from 'store/actions/models';
+import { debounce } from 'lodash';
+import { repository, clearModel as clearModelAction } from 'store/actions/models';
 import { connect } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -11,23 +11,20 @@ import { SearchReposParams } from 'types';
 
 const Input: React.FC<{
   search(param: SearchReposParams, replace?): any
-  clearAll(): any
+  clearModel(name: string): any
 }> = ({
   search,
-  clearAll
+  clearModel
 }) => {
-  const debounceSearch = React.useRef(debounce(search, 250)).current;
+  const debounceSearch = React.useRef(debounce(search, 350)).current;
   const history = useHistory();
   const location = useLocation();
   const query = qs.parse(location.search).q as string;
 
   React.useEffect(() => {
-    if (isEmpty(query)) {
-      clearAll();
-    } else {
-      const replace = history.action === 'PUSH';
-      debounceSearch({q: query, per_page: 20, page: 1}, replace);
-    }
+    const replace = history.action === 'PUSH';
+    if (replace) clearModel('Repository');
+    debounceSearch({q: query, per_page: 20, page: 1}, replace);
   }, [query]);
 
   const handleChange = React.useCallback(q => {
@@ -45,7 +42,7 @@ const Input: React.FC<{
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   search: repository.search,
-  clearAll: clearAllAction
+  clearModel: clearModelAction
 }, dispatch);
 
 export default connect(
