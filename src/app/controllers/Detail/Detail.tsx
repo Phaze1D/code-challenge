@@ -1,12 +1,13 @@
 import * as React from 'react';
 import UI from './Detail.ui';
 import { Repository, GetRepoParams } from 'types';
-import { get } from 'lodash';
+import { get, isEmpty } from 'lodash';
 import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { bindActionCreators } from 'redux';
 import { repository } from 'store/actions/models';
+import { useThrowError } from 'app/hooks';
 
 const Detail: React.FC<{
   repo: Repository
@@ -17,9 +18,10 @@ const Detail: React.FC<{
   getRepo
 }) => {
   const {owner, name} = match.params;
+  const [onCatch] = useThrowError();
 
   React.useEffect(() => {
-    getRepo({owner, name});
+    if (isEmpty(repo)) getRepo({owner, name}).catch(onCatch);
   }, [owner, name]);
 
   return (

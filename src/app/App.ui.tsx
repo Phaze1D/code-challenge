@@ -6,6 +6,7 @@ import Search from 'app/controllers/Search';
 import Intro from 'app/components/Intro';
 import { theme } from 'styled';
 import { Switch, Route } from 'react-router-dom';
+import { DetailErrorBoundary } from './catchers';
 
 
 const App: React.FC<{
@@ -20,7 +21,14 @@ const App: React.FC<{
         {matches => matches ?
           (
             <Switch>
-              <Route path='/repo/:id/:owner/:name' component={Detail} />
+                <Route
+                  path='/repo/:id/:owner/:name'
+                  render={props => (
+                    <DetailErrorBoundary {...props}>
+                      <Detail {...props} />
+                    </DetailErrorBoundary>
+                  )}
+                />
               <Route path='/' component={Search} />
             </Switch>
           )
@@ -29,7 +37,14 @@ const App: React.FC<{
             <>
               <Route path='/' component={Search} />
               <Switch>
-                <Route path='/repo/:id/:owner/:name' component={Detail} />
+                <Route
+                  path='/repo/:id/:owner/:name'
+                  render={props => (
+                    <DetailErrorBoundary {...props}>
+                      <Detail {...props} />
+                    </DetailErrorBoundary>
+                  )}
+                />
                 <Route path='/' component={Intro} />
               </Switch>
             </>

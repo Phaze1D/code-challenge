@@ -1,30 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Actions - Search for Repos Should catch error and return Error model 1`] = `
-Object {
-  "payload": Object {
-    "models": Array [
-      Object {
-        "data": Object {
-          "alertMessage": "Something seems to have gone wrong",
-          "error": [Error: Request failed with status code 400],
-        },
-        "id": "0",
-        "type": "Error",
-      },
-      Object {
-        "data": Object {
-          "loading": false,
-        },
-        "id": "0",
-        "type": "Search",
-      },
-    ],
-  },
-  "type": "REPLACE_MANY",
-}
-`;
-
 exports[`Actions - Search for Repos Should return correctly transform data 1`] = `
 Object {
   "payload": Object {
@@ -64,3 +39,5 @@ Object {
   "type": "UPSERT_MANY",
 }
 `;
+
+exports[`Actions - Search for Repos Should throw error 1`] = `[Error: Request failed with status code 400]`;

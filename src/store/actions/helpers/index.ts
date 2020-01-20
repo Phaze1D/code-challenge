@@ -31,7 +31,8 @@ export const buildAction = ({
       .then(res => dispatch(transform(res, replace)))
       .catch(error => {
         if (axios.isCancel(error)) return;
-        return dispatch(handleRequestFail({error, apiID, apiName}));
+        dispatch(handleRequestFail({error, apiID, apiName}));
+        return Promise.reject(error);
       });
   };
 };

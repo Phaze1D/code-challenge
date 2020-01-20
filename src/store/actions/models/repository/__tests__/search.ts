@@ -16,11 +16,14 @@ describe('Actions - Search for Repos', () => {
     expect(results).toMatchSnapshot();
   });
 
-  it('Should catch error and return Error model', async () => {
+  it('Should throw error', async () => {
     mock.onGet('/search/repositories').reply(400, fixtures);
     const store = mockStore();
-    const results = await store.dispatch(search({q: 'react'}));
-    expect(results).toMatchSnapshot();
+    try {
+      await store.dispatch(search({q: 'react'}));
+    } catch (error) {
+      expect(error).toMatchSnapshot();
+    }
   });
 });
 

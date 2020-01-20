@@ -1,7 +1,8 @@
 import * as React from 'react';
-import * as s from './PreviewError.styles';
+import * as s from './DetailError.styles';
+import { RouteComponentProps } from 'react-router-dom';
 
-class PreviewError extends React.Component<{id: string | number}> {
+class DetailError extends React.Component<RouteComponentProps> {
 
   state = {
     hasError: false
@@ -16,8 +17,10 @@ class PreviewError extends React.Component<{id: string | number}> {
   }
 
   componentDidUpdate(prev) {
-    const {id} = this.props;
-    if (id !== prev.id) this.setState({hasError: false});
+    const {location} = this.props;
+    if (location.pathname !== prev.location.pathname) {
+      this.setState({hasError: false});
+    }
   }
 
   render() {
@@ -36,4 +39,4 @@ class PreviewError extends React.Component<{id: string | number}> {
     );
   }
 }
-export default PreviewError;
+export default DetailError;

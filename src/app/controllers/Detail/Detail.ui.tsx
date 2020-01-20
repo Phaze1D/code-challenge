@@ -27,7 +27,7 @@ const UI: React.FC<{
 
       <InfoSection repo={repo} />
 
-      <PreviewErrorBoundary>
+      <PreviewErrorBoundary id={repo.id}>
         <Preview
           repo={repo}
         />
