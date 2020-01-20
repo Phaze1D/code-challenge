@@ -4,15 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 export const Card = styled(NavLink)`
   display: block;
-  padding: 1rem 2rem;
-  margin: 1.5rem 0;
+  padding: 2rem 2rem;
   border-radius: 8px;
   cursor: pointer;
   color: ${({theme}) => theme.colors.text};
-  box-shadow: ${boxShadow(1.5)};
 
   &.active {
-    box-shadow: none;
+    box-shadow: ${boxShadow(1.5, true)};
   }
 `;
 

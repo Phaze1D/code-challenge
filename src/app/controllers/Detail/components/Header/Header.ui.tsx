@@ -4,19 +4,21 @@ import Media from 'react-media';
 import { Repository } from 'types';
 import { theme } from 'styled';
 import { get } from 'lodash';
+import { useHistory } from 'react-router-dom';
 
 const Header: React.FC<{
   repo: Repository
 }> = ({
   repo
 }) => {
+  const history = useHistory();
 
   return (
     <s.Header>
       <Media
         query={`(max-width: ${theme.breakpoints.mobile})`}
         render={() => (
-          <s.Back to='/'>
+          <s.Back onClick={history.goBack}>
             <i className='material-icons-round'>arrow_back</i>
           </s.Back>
         )}

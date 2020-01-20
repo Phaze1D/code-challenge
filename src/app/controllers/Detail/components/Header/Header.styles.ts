@@ -1,6 +1,4 @@
 import styled from 'styled';
-import { Link } from 'react-router-dom';
-
 
 export const Header = styled.div`
   display: flex;
@@ -44,7 +42,7 @@ export const Avatar = styled.img`
   }
 `;
 
-export const Back = styled(Link)`
+export const Back = styled.button`
   padding: 1.5rem;
   display: flex;
   align-items: center;
