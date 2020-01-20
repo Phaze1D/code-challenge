@@ -3,7 +3,7 @@
 Develop a simple single-page application (SPA), that will be used to explore github
 repositories.
 
-> This is all I could do with the time that I had. There is still a lot of improvements that could be done.
+> Sorry for not completing the entire assignment, this is all I could do with the time that I had. There is still a lot of improvements that could be done. Including the extra credit.
 
 ### Running development env
 ```
@@ -136,3 +136,6 @@ Pitfall - At the moment there is no knowledge from which query/api that data cam
 * Redux Action helper is way to over-engineered and needs refactoring.
 * Better Error handling
 * Lazy load the redux store/actions.
+
+
+> Just to be clear, the things that were not implemented is solely due to my lack of time and not my lack of ability.
