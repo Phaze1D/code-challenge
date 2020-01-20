@@ -63,9 +63,26 @@ describe('Testing reducer', () => {
 
     it('Should Update Multiple', () => {
       const state = reducer(INITIAL_STATE, {type: UPSERT_MANY, payload: {models}});
-      const nModels = models.map(m => ({...m, data: {newData: 'welcome'}}));
+      const nModels: any = models.map(m => ({...m, data: {newData: 'welcome'}}));
       nModels.pop();
+      const nState = reducer(state, {type: UPSERT_MANY, payload: {models: nModels}});
+      expect(nState).toMatchSnapshot();
+    });
 
+    it('Should Update Multiple different models', () => {
+      const state = reducer(INITIAL_STATE, {type: UPSERT_MANY, payload: {models}});
+      const nModels = [
+        {
+          type: 'Repo',
+          id: 15,
+          data: {name: 'Hello There'}
+        },
+        {
+          type: 'Repo',
+          id: 52,
+          data: {name: 'General Kenobi'}
+        }
+      ];
       const nState = reducer(state, {type: UPSERT_MANY, payload: {models: nModels}});
       expect(nState).toMatchSnapshot();
     });

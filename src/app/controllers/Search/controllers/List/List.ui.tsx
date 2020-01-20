@@ -1,24 +1,63 @@
 import * as React from 'react';
 import * as s from './List.styles';
-import { Repository } from 'types';
 import { Item } from '../../components';
+import { Repository } from 'types';
 
 const UI: React.FC<{
   repos: Repository[]
   loading: boolean
+  onLoadMore(): any
 }> = ({
   repos,
-  loading
+  loading,
+  onLoadMore
 }) => {
+  const hasRepos = repos.length > 0;
 
-  const map = React.useCallback((repo: Repository) => (
-    <Item key={repo.id} repo={repo} />
-  ), []);
+  const genItem = React.useCallback((index) => {
+    if (hasRepos) return <Item repo={repos[index]} />;
+    return null;
+  }, [repos]);
+
+  const genKey = React.useCallback((index) => {
+    if (hasRepos) return repos[index].id;
+    return 0;
+  }, [repos]);
 
   return (
-    <s.Container>
-      {loading ? 'Loading' : repos.map(map)}
-    </s.Container>
+    <>
+      {hasRepos ?
+        <s.Container
+          totalCount={repos.length}
+          item={genItem}
+          itemHeight={91}
+          overscan={3}
+          computeItemKey={genKey}
+          footer={() => <Footer loading={loading} onClick={onLoadMore} />}
+        />
+        :
+        <s.EmptyState>
+          {loading && 'Loading'}
+        </s.EmptyState>
+      }
+    </>
   );
 };
 export default UI;
+
+
+const Footer: React.FC<{
+  loading: boolean
+  onClick(): any
+}> = ({
+  loading,
+  onClick
+}) => (
+  <s.LoadButton
+    disabled={loading}
+    onClick={onClick}
+    style={{boxShadow: loading ? 'none' : ''}}
+  >
+    {loading ? 'Loading...' : 'Load More'}
+  </s.LoadButton>
+);

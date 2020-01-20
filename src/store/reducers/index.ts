@@ -82,22 +82,17 @@ const remove = (state, payload: {model: PayloadModel}) => {
  */
 const upsertMany = (state, payload: {models: PayloadModel[]}) => {
   const {models} = payload;
-  const nModels = {};
+  const nModels = {...state.models};
   models.forEach(model => {
-    nModels[model.type] = {
-      ...get(nModels, [model.type]),
-      [model.id]: {
-        ...get(state.models, [model.type, model.id]),
-        ...model.data
-      }
+    nModels[model.type] = {...get(nModels, [model.type], {})};
+    nModels[model.type][model.id] =  {
+      ...get(state.models, [model.type, model.id]),
+      ...model.data
     };
   });
 
   return {
-    models: {
-      ...state.models,
-      ...nModels
-    }
+    models: nModels
   };
 };
 
@@ -107,21 +102,16 @@ const upsertMany = (state, payload: {models: PayloadModel[]}) => {
  */
 const replaceMany = (state, payload: {models: PayloadModel[]}) => {
   const {models} = payload;
-  const nModels = {};
+  const nModels = {...state.models};
   models.forEach(model => {
-    nModels[model.type] = {
-      ...get(nModels, [model.type]),
-      [model.id]: {
-        ...model.data
-      }
+    nModels[model.type] = {...get(nModels, [model.type], {})};
+    nModels[model.type][model.id] =  {
+      ...model.data
     };
   });
 
   return {
-    models: {
-      ...state.models,
-      ...nModels
-    }
+    models: nModels
   };
 };
 

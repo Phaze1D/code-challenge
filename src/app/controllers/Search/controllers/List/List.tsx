@@ -1,23 +1,32 @@
 import * as React from 'react';
 import UI from './List.ui';
 import { get, orderBy } from 'lodash';
+import { repository } from 'store/actions/models';
 import { createSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { Repository } from 'types';
+import { Repository, SearchReposParams } from 'types';
+import { bindActionCreators } from 'redux';
 
 const List: React.FC<{
   repos: Repository[]
-  search: any
+  searchModel: any
+  search(param: SearchReposParams, replace?): any
 }> = ({
   repos,
+  searchModel,
   search
 }) => {
-  const {loading} = search;
+  const {loading} = searchModel;
+  const handleLoadMore = React.useCallback(() => {
+    const {params} = searchModel;
+    search({...params, page: get(params, 'page', 0) + 1});
+  }, [searchModel]);
 
   return (
     <UI
       loading={loading}
       repos={repos}
+      onLoadMore={handleLoadMore}
     />
   );
 };
@@ -25,13 +34,18 @@ const List: React.FC<{
 const getRepos = createSelector(
   state => get(state, 'models.Repository', {}),
   reposMap => orderBy(reposMap, 'score', 'desc')
-);
+);  // TODO: NEED TO TEST THIS SELECTOR
 
 const mapStateToProps = (state) => ({
   repos: getRepos(state),
-  search: get(state, 'models.Search.0', {})
+  searchModel: get(state, 'models.Search.0', {})
 });
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+  search: repository.search
+}, dispatch);
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(React.memo(List));

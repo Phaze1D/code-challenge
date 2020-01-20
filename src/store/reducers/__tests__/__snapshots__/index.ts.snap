@@ -75,6 +75,32 @@ Object {
 }
 `;
 
+exports[`Testing reducer Testing Multiple Models Should Update Multiple different models 1`] = `
+Object {
+  "models": Object {
+    "Dumb": Object {
+      "5": Object {
+        "name": "JarJar",
+      },
+    },
+    "Repo": Object {
+      "1": Object {
+        "name": "Hello There",
+      },
+      "15": Object {
+        "name": "Hello There",
+      },
+      "5": Object {
+        "name": "General Kenobi",
+      },
+      "52": Object {
+        "name": "General Kenobi",
+      },
+    },
+  },
+}
+`;
+
 exports[`Testing reducer Testing Single Model Should add new model 1`] = `
 Object {
   "models": Object {

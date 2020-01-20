@@ -42,6 +42,9 @@ Object {
         "data": Object {
           "incomplete_results": false,
           "loading": false,
+          "params": Object {
+            "q": "react",
+          },
           "total_count": 1157653,
         },
         "id": "0",
