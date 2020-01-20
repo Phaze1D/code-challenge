@@ -127,6 +127,16 @@ Data is received then transform into ...
 }
 ```
 
+and then stored like so
+
+```
+{
+  [ModelName]: {
+    [id]: data
+  }
+}
+```
+
 Once it is store like this it can easily be accessed from anywhere in the app without having to worry about the structure of the data.
 
 Pitfall - At the moment there is no knowledge from which query/api that data came from. So on every search the data must be removed / replaced.
