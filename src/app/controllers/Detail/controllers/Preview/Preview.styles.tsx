@@ -684,7 +684,7 @@ export const Container = styled.div`
   }
 
   table tr:nth-child(2n) {
-    background-color: #f6f8fa;
+    background-color: transparent;
   }
 
   img {
