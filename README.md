@@ -112,9 +112,27 @@ utils - small useful functions that can be used everywhere
 styled - styled-components config
 
 
+## Redux Store
+The redux store is base on how apollographql stores data on the client side.
+Data is received then transform into ...
+
+```javascript
+{
+  type: 'ModelName'
+  id: 'Model Id'
+  data: 'The data that was recevied'
+}
+```
+
+Once it is store like this it can easily be accessed from anywhere in the app without having to worry about the structure of the data.
+
+Pitfall - At the moment there is no knowledge from which query/api that data came from. So on every search the data must be removed / replaced.
+
+
 ## Possible Improvements
 
 * A lot more testing needs to be done
-* Redux Action helper is way to over-engineered and needs refactoring
+* Add request caching to the redux store so that if a user sends the same request twice then the second time the results should come directly from the cache.
+* Redux Action helper is way to over-engineered and needs refactoring.
 * Better Error handling
 * Lazy load the redux store/actions.
