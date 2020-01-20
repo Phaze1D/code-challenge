@@ -34,7 +34,6 @@ export const Avatar = styled.img`
   height: 40px;
   object-fit: cover;
   margin-left: 2rem;
-  opacity: 0.6;
 
   @media (max-width: ${({theme}) => theme.breakpoints.mobile}) {
     width: 30px;

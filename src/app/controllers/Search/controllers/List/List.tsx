@@ -24,7 +24,7 @@ const List: React.FC<{
 
   return (
     <UI
-      loading={loading}
+      loading={loading && get(params, 'q')}
       repos={repos}
       hasMore={repos.length < total_count}
       onLoadMore={handleLoadMore}
