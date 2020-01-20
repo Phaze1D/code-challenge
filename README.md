@@ -149,6 +149,7 @@ Pitfall - At the moment there is no knowledge from which query/api that data cam
 * Redux Action helper is way to over-engineered and needs refactoring.
 * Better Error handling
 * Lazy load the redux store/actions.
+* react-virtuoso is a bit buggy some times
 
 
 > Just to be clear, the things that were not implemented is solely due to my lack of time and not my lack of ability.
