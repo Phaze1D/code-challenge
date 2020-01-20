@@ -32,4 +32,4 @@ const Header: React.FC<{
     </s.Header>
   );
 };
-export default React.memo(Header, (prev, next) => next.repo.id !== prev.repo.id);
+export default React.memo(Header);

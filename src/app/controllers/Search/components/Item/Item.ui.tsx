@@ -19,10 +19,13 @@ const Item: React.FC<{
         search: location.search
       }}
     >
-      <s.Name>
-        <s.RepoName>{repo.name}</s.RepoName>
-        <s.OwnerName> - {get(repo, 'owner.login')}</s.OwnerName>
-      </s.Name>
+      <s.Header>
+        <s.Avatar src={get(repo, 'owner.avatar_url')} />
+        <s.Name>
+          <s.RepoName>{repo.name} </s.RepoName>
+          <s.OwnerName> - {get(repo, 'owner.login')}</s.OwnerName>
+        </s.Name>
+      </s.Header>
 
       <s.Description>{repo.description}</s.Description>
       <s.Date>Pushed At - {new Date(repo.pushed_at).toLocaleDateString()}</s.Date>
