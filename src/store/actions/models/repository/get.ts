@@ -1,18 +1,17 @@
-import { omit } from 'lodash';
 import { AxiosResponse } from 'axios';
 import { github } from 'api';
-import { SearchReposParams } from 'types';
+import { GetRepoParams } from 'types';
 import { REPLACE_MANY, UPSERT_MANY } from 'store/actions/types';
-import {  buildAction } from 'store/actions/helpers';
+import { buildAction } from 'store/actions/helpers';
 
 
-export const search = (
-  params: SearchReposParams,
+export const get = (
+  params: GetRepoParams,
   replace = false
 ) => buildAction({
   params,
-  apiMethod: github.searchRepos,
-  apiName: 'Search',
+  apiMethod: github.getRepo,
+  apiName: 'GET_REPO',
   apiID: '0',
   transform,
   replace
@@ -20,19 +19,19 @@ export const search = (
 
 const transform = (res: AxiosResponse, replace = false) => {
   const {data, config} = res;
-  const models = data.items.map(repo => ({
+
+  const models = [{
     type: 'Repository',
-    id: repo.id,
-    data: repo
-  }));
+    id: data.id,
+    data
+  }];
 
   models.push({
-    type: 'Search',
+    type: 'GET_REPO',
     id: '0',
     data: {
-      ...omit(data, 'items'),
-      params: config.params,
-      loading: false
+      loading: false,
+      params: config.params
     }
   });
 

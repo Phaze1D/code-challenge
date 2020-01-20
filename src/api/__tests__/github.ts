@@ -18,4 +18,6 @@ describe('Github API Config Test', () => {
     expect(res.config.headers).toMatchSnapshot();
     expect(res.config.baseURL).toMatchSnapshot();
   });
+
+  // TODO: TEST Cancel tokens
 });

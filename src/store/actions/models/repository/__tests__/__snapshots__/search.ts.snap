@@ -3,16 +3,25 @@
 exports[`Actions - Search for Repos Should catch error and return Error model 1`] = `
 Object {
   "payload": Object {
-    "model": Object {
-      "data": Object {
-        "alertMessage": "Something seems to have gone wrong",
-        "error": [Error: Request failed with status code 400],
+    "models": Array [
+      Object {
+        "data": Object {
+          "alertMessage": "Something seems to have gone wrong",
+          "error": [Error: Request failed with status code 400],
+        },
+        "id": "0",
+        "type": "Error",
       },
-      "id": "234",
-      "type": "Error",
-    },
+      Object {
+        "data": Object {
+          "loading": false,
+        },
+        "id": "0",
+        "type": "Search",
+      },
+    ],
   },
-  "type": "UPSERT",
+  "type": "REPLACE_MANY",
 }
 `;
 

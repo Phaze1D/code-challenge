@@ -17,11 +17,11 @@ export const setToken = (token: string) => {
 };
 
 
-export const searchRepos = (params: SearchReposParams) => {
-  return githubAxios.get('/search/repositories', {params});
+export const searchRepos = (params: SearchReposParams, cancelToken?) => {
+  return githubAxios.get('/search/repositories', {params, cancelToken});
 };
 
-export const getRepo = (params: GetRepoParams) => {
+export const getRepo = (params: GetRepoParams, cancelToken?) => {
   const {owner, repo} = params;
-  return githubAxios.get(`/repos/${owner}/${repo}`);
+  return githubAxios.get(`/repos/${owner}/${repo}`, {cancelToken});
 };
