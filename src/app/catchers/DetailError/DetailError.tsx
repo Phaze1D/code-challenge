@@ -32,7 +32,7 @@ class DetailError extends React.Component<RouteComponentProps> {
         {!hasError ? children :
           <s.Container>
             <s.Icon className='material-icons-round'>error</s.Icon>
-            Looks like something went wrong while trying to preview the Readme file
+            Looks like something went wrong while trying to view a repo
           </s.Container>
         }
       </>

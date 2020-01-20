@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as s from './Search.styles';
 import { Input, List } from './controllers';
+import { SearchErrorBoundary } from './catchers';
 
 const UI: React.FC<{
 
@@ -11,8 +12,10 @@ const UI: React.FC<{
 
   return (
     <s.Container>
-      <Input />
-      <List />
+      <SearchErrorBoundary>
+        <Input />
+        <List />
+      </SearchErrorBoundary>
     </s.Container>
   );
 };
