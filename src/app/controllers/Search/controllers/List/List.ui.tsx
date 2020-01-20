@@ -5,8 +5,10 @@ import { Item } from '../../components';
 
 const UI: React.FC<{
   repos: Repository[]
+  loading: boolean
 }> = ({
-  repos
+  repos,
+  loading
 }) => {
 
   const map = React.useCallback((repo: Repository) => (
@@ -15,7 +17,7 @@ const UI: React.FC<{
 
   return (
     <s.Container>
-      {repos.map(map)}
+      {loading ? 'Loading' : repos.map(map)}
     </s.Container>
   );
 };
