@@ -84,6 +84,7 @@ describe('Testing reducer', () => {
         }
       ];
       const nState = reducer(state, {type: UPSERT_MANY, payload: {models: nModels}});
+      expect(state.models.Repo).not.toEqual(nState.models.Repo);
       expect(nState).toMatchSnapshot();
     });
 

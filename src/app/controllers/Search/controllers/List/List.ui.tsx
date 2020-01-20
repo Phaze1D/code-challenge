@@ -6,10 +6,12 @@ import { Repository } from 'types';
 const UI: React.FC<{
   repos: Repository[]
   loading: boolean
+  hasMore: boolean
   onLoadMore(): any
 }> = ({
   repos,
   loading,
+  hasMore,
   onLoadMore
 }) => {
   const hasRepos = repos.length > 0;
@@ -33,7 +35,7 @@ const UI: React.FC<{
           itemHeight={91}
           overscan={3}
           computeItemKey={genKey}
-          footer={() => <Footer loading={loading} onClick={onLoadMore} />}
+          footer={() => hasMore ? <Footer loading={loading} onClick={onLoadMore} /> : null}
         />
         :
         <s.EmptyState>

@@ -16,7 +16,8 @@ const List: React.FC<{
   searchModel,
   search
 }) => {
-  const {loading} = searchModel;
+  const {loading, total_count} = searchModel;
+
   const handleLoadMore = React.useCallback(() => {
     const {params} = searchModel;
     search({...params, page: get(params, 'page', 0) + 1});
@@ -26,6 +27,7 @@ const List: React.FC<{
     <UI
       loading={loading}
       repos={repos}
+      hasMore={repos.length < total_count}
       onLoadMore={handleLoadMore}
     />
   );
