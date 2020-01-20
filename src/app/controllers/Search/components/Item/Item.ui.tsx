@@ -11,6 +11,8 @@ const Item: React.FC<{
 }) => {
   const location = useLocation();
 
+  // BUG: is_js
+
   return (
     <s.Card
       activeClassName='active'

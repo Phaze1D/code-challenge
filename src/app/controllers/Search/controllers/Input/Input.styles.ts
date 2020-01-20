@@ -3,7 +3,7 @@ import styled, { boxShadow } from 'styled';
 
 export const Wrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: 2rem;
   left: 2rem;
   z-index: 1;
   display: flex;
@@ -14,10 +14,6 @@ export const Wrapper = styled.div`
   padding: 0.8rem 1.5rem;
   box-shadow: ${boxShadow(3.5)};
   background: ${({theme}) => theme.colors.background};
-
-  @media (max-width: ${({theme}) => theme.breakpoints.mobile}) {
-    top: 2rem;
-  }
 `;
 
 

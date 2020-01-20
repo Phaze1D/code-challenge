@@ -9,18 +9,18 @@ export const Container = styled(Virtuoso)`
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
-      width: 0.5rem;
-    }
+    width: 0.5rem;
+  }
 
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  &:hover {
     &::-webkit-scrollbar-thumb {
-      background: transparent;
+      background: rgba(255,255,255,0.4);
     }
-
-    &:hover {
-      &::-webkit-scrollbar-thumb {
-        background: rgba(255,255,255,0.4);
-      }
-    }
+  }
 `;
 
 export const EmptyState = styled.div`

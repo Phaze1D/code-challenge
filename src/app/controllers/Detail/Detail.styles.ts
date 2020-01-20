@@ -5,7 +5,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 2rem 0 0 2rem;
+  padding: 2rem 2rem;
+  max-height: 100vh;
+  overflow: hidden;
+
   @media (max-width: ${({theme}) => theme.breakpoints.mobile}) {
     padding: 1rem;
   }
