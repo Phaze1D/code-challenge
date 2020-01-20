@@ -4,16 +4,16 @@ import { Input, List } from './controllers';
 import { SearchErrorBoundary } from './catchers';
 
 const UI: React.FC<{
-
+  search: string
 }> = ({
-
+  search
 }) => {
 
 
   return (
     <s.Container>
       <Input />
-      <SearchErrorBoundary>
+      <SearchErrorBoundary search={search}>
         <List />
       </SearchErrorBoundary>
     </s.Container>
