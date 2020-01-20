@@ -1,13 +1,13 @@
 import MockAdapter from 'axios-mock-adapter';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { __githubAxios } from 'api/github';
+import { githubAxios } from 'api/github';
 import { search } from '../search';
 
 const mockStore = configureMockStore([thunk]);
 
 describe('Actions - Search for Repos', () => {
-  const mock = new MockAdapter(__githubAxios);
+  const mock = new MockAdapter(githubAxios);
 
   it('Should return correctly transform data', async () => {
     mock.onGet('/search/repositories').reply(200, fixtures);

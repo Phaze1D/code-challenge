@@ -36,6 +36,26 @@ export type Repository = {
 };
 
 
+export type Readme = {
+  'type': string
+  'encoding': string
+  'size': number,
+  'name': string
+  'path': string
+  'content': string
+  'sha': string
+  'url': string
+  'git_url': string
+  'html_url': string
+  'download_url': string
+  '_links': {
+    'git': string
+    'self': string
+    'html': string
+  }
+};
+
+
 export type SearchReposParams = {
   q: string
   per_page?: number
@@ -43,7 +63,6 @@ export type SearchReposParams = {
   sort?: string
   order?: 'asc' | 'desc'
 };
-
 
 export type GetRepoParams = {
   owner: string
@@ -55,3 +74,11 @@ export type PayloadModel = {
   type: string
   data: any
 };
+
+export type GetMarkdownParams = {
+  text: string
+  mode?: 'markdown' | 'gfm'
+  context?: string
+};
+
+export type ReadmeParams = GetRepoParams;

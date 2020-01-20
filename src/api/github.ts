@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { SearchReposParams, GetRepoParams } from 'types';
+import { SearchReposParams, GetRepoParams, GetMarkdownParams } from 'types';
 
-const githubAxios = axios.create({
+export const githubAxios = axios.create({
   baseURL: 'https://api.github.com',
   headers: {
     common: {
@@ -9,7 +9,6 @@ const githubAxios = axios.create({
     }
   }
 });
-export const __githubAxios = githubAxios;
 
 
 export const setToken = (token: string) => {
@@ -24,4 +23,13 @@ export const searchRepos = (params: SearchReposParams, cancelToken?) => {
 export const getRepo = (params: GetRepoParams, cancelToken?) => {
   const {owner, name} = params;
   return githubAxios.get(`/repos/${owner}/${name}`, {cancelToken});
+};
+
+export const getReadme = (params: GetRepoParams, cancelToken?) => {
+  const {owner, name} = params;
+  return githubAxios.get(`/repos/${owner}/${name}/readme`, {cancelToken});
+};
+
+export const getMarkdown = (data: GetMarkdownParams, cancelToken?) => {
+  return githubAxios.post('/markdown', data, {cancelToken});
 };

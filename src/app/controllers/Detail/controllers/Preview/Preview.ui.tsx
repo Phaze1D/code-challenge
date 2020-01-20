@@ -2,15 +2,20 @@ import * as React from 'react';
 import * as s from './Preview.styles';
 
 const UI: React.FC<{
-  hasMarkdown: boolean
+  content: string
+  loading: boolean
 }> = ({
-  hasMarkdown
+  content,
+  loading
 }) => {
 
   return (
     <s.Container>
-      {hasMarkdown ? '' :
-        <s.EmptyState>Looks like this repo doesn't have a Readme</s.EmptyState>
+      {content ?
+        <div dangerouslySetInnerHTML={{__html: content}} /> :
+        <s.EmptyState>
+          {loading ? 'Loading' : `Looks like this repo doesn't have a Readme`}
+        </s.EmptyState>
       }
     </s.Container>
   );

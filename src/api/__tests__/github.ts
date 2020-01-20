@@ -1,8 +1,8 @@
 import MockAdapter from 'axios-mock-adapter';
-import { searchRepos, __githubAxios, setToken, getRepo } from '../github';
+import { searchRepos, githubAxios, setToken, getRepo } from '../github';
 
 describe('Github API Config Test', () => {
-  const mock = new MockAdapter(__githubAxios);
+  const mock = new MockAdapter(githubAxios);
 
   it('Should match correct config without auth', async () => {
     mock.onGet(/\S/).reply(200, {});

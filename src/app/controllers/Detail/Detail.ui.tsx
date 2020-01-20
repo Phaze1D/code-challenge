@@ -28,7 +28,9 @@ const UI: React.FC<{
       <InfoSection repo={repo} />
 
       <PreviewErrorBoundary>
-        <Preview />
+        <Preview
+          repo={repo}
+        />
       </PreviewErrorBoundary>
     </s.Container>
   );
