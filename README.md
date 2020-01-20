@@ -33,15 +33,11 @@ The main architecture of this app can be explained with 3 simple files, and 2 si
 [ComponentName].styles.ts
 ```
 
-
-
 > folders
 ```
 controllers
 components
 ```
-
-
 
 ### Controllers
 A controller consists of the 3 files mentioned above. A React Component is considered to be a controller when it has any of the following properties.
@@ -59,8 +55,62 @@ The only thing a component should do is receive and display data. Also, a compon
 
 ### Folder Structure
 
-#### /app
+#### App Folder
 Where all react related code is placed.
+ * components
+ * controllers
+ * hooks
+ * catchers (error boundaries)
+
+This has a recursive structure base on how the dom is build. There is a max-depth of 2 nested controllers e.g `contollers/[Name]/controllers/[Name]`. Controllers folder can have hooks, catchers, and components. Components folder should only have components.
+
+Example.
+
+```
+components
+  Intro
+    Intro.ui.ts
+    Intro.styles.ts
+controllers
+  Search
+    Search.ts
+    Search.styles.ts
+    Search.ui.ts
+    hooks
+    catchers
+    components
+    controllers // No more nested controllers allowed
+      ...
+```
+
+#### Store Folder
+Where all redux relate logic goes.
+* actions
+* reducers
+The actions folder has helpers folder where shared logic can go, and the models folder where all model actions go.
+
+Example
+```
+store
+  helpers
+    buildAction.ts
+  actions
+    models
+      repository
+        search.ts
+        get.ts
+        readme.ts
+```
+
+#### Others
+api folder - api functions.
+
+types folder - types definitions
+
+utils - small useful functions that can be used everywhere
+
+styled - styled-components config
+
 
 ## Possible Improvements
 
