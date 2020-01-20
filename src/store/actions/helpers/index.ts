@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { get } from 'lodash';
 import { REPLACE, REPLACE_MANY, UPSERT } from 'store/actions/types';
 
@@ -29,7 +29,7 @@ export const buildAction = ({
 
     return apiMethod(params, cancelSource.token)
       .then(res => dispatch(transform(res, replace)))
-      .catch(error => {
+      .catch((error: AxiosError) => {
         if (axios.isCancel(error)) return;
         dispatch(handleRequestFail({error, apiID, apiName}));
         return Promise.reject(error);
