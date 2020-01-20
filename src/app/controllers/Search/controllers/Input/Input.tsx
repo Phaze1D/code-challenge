@@ -22,9 +22,11 @@ const Input: React.FC<{
   const query = qs.parse(location.search).q as string;
 
   React.useEffect(() => {
-    isEmpty(query) ?
-      clearAll() :
-      debouceSearch({q: query, per_page: 5, page: 1}, true);
+    if (isEmpty(query)) {
+      clearAll();
+    } else {
+      debouceSearch({q: query, per_page: 10, page: 0}, true);
+    }
   }, [query]);
 
   const handleChange = React.useCallback(q => {
