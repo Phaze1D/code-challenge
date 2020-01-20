@@ -679,7 +679,7 @@ export const Container = styled.div`
   }
 
   table tr {
-    background-color: #fff;
+    background-color: transparent;
     border-top: 1px solid #c6cbd1;
   }
 
