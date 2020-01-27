@@ -1,4 +1,4 @@
-# Salto Interview Assignment
+# Interview Assignment
 
 Develop a simple single-page application (SPA), that will be used to explore github
 repositories.

@@ -1,7 +1,7 @@
 {
-  "name": "salto",
+  "name": "sinterview",
   "version": "0.0.1",
-  "description": "Interview assignment for Salto",
+  "description": "Interview assignment for",
   "main": "dist/index.js",
   "author": "David Villarreal",
   "license": "MIT",
